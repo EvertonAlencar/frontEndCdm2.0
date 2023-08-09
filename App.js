@@ -1,20 +1,42 @@
+import axios from 'axios';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet,ScrollView,View} from 'react-native';
+import ItemComponent from './components/ItemComponent';
 
 export default function App() {
+  const imagem  = {uri : './assets/logo.png'}
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <ItemComponent/>
+        <StatusBar style="auto" hidden={true} />
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: '100%',
     backgroundColor: '#fff',
+    flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    flexDirection: 'column',
+    marginTop: 50
+  }
 });
