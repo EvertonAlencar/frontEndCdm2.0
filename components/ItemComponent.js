@@ -1,22 +1,30 @@
 import React from "react";
+import { useState } from "react";
 import { Text, View, TouchableOpacity,StyleSheet } from "react-native";
-import { RFValue, RFPercentage } from "react-native-responsive-fontsize";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { RFPercentage } from "react-native-responsive-fontsize";
 import {AntDesign} from '@expo/vector-icons'
 
-export default function ItemComponent(){
+export default function ItemComponent({title,description}){
+    const [getQuantity,setQuantity] = useState(0)
     return(
         <View style={styles.main}>
             <View style={styles.containerTitleValueAndAddButtom}> 
                 <Text style={styles.title}>
-                    Omelete completo
+                    {title}
                 </Text>
                 <View style={styles.viewChooseQuantity}>
-                    <TouchableOpacity style={styles.buttomQuantity}>
+                    <TouchableOpacity style={styles.buttomQuantity} onPress={()=>{
+                        if (getQuantity > 0){
+                            setQuantity(getQuantity - 1)
+                        }
+                        
+                    }}>
                         <AntDesign name='minussquareo' size={RFPercentage(4)} color={'#68BE36'}/>
                     </TouchableOpacity>
-                    <Text style={styles.textQuantity}>0</Text>
-                    <TouchableOpacity style={styles.buttomQuantity}>
+                    <Text style={styles.textQuantity}>{getQuantity}</Text>
+                    <TouchableOpacity style={styles.buttomQuantity} onPress={()=>{
+                        setQuantity(getQuantity + 1)
+                    }}>
                         <AntDesign name='plussquareo' size={RFPercentage(4)} color={'#68BE36'}/>
                     </TouchableOpacity>
                 </View>
@@ -27,7 +35,7 @@ export default function ItemComponent(){
             <View style={styles.containerDescription}>
                 <View style = {styles.viewDescription}>
                     <Text style={styles.textDescripiton}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum vel enim
+                        {description}
                     </Text>
                 </View>
             </View>
@@ -77,7 +85,8 @@ const styles = StyleSheet.create({
         width: '60%',
         height: '20%',
         backgroundColor: '#FBB102',
-        marginBottom: '5%'
+        marginBottom: '5%',
+        borderRadius : 5
     },
     textButtomAddQuantity: {
         color: 'white',
@@ -97,7 +106,8 @@ const styles = StyleSheet.create({
         width: '95%',
         height: '100%',
         backgroundColor: '#0184F3',
-        borderRadius: 20
+        borderRadius: 20,
+        padding : RFPercentage(2)
         
     },
     textDescripiton : {
