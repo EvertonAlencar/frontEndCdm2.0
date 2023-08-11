@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         width: '90%',
-        height: 'auto',
+        height: RFPercentage(25),
         backgroundColor : '#0161B3',
         borderRadius: 20,
-        marginBottom: 10,
+        marginBottom: 20,
         padding: '2%'
     },
     containerTitleValueAndAddButtom : {

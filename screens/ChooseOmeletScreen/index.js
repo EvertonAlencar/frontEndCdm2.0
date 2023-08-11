@@ -5,7 +5,7 @@ import {styles} from './styles'
 
 export default function ChooseOmeletScreen() {
   return (
-    <View>
+    <View style={{backgroundColor: 'white'}}>
       <ScrollView>
         <View style={styles.container}>
           <ItemComponent title={'Tapioca delicia'} description={'Tapioca recheada com coco fresco ralado'}/>
