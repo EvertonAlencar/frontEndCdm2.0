@@ -28,7 +28,7 @@ export default function ItemComponent({title,description}){
                         <AntDesign name='plussquareo' size={RFPercentage(4)} color={'#68BE36'}/>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={styles.buttomAddQuantity}>
+                <TouchableOpacity style={styles.buttomAddQuantity} >
                     <Text style={styles.textButtomAddQuantity}>Adicionar</Text>
                 </TouchableOpacity>
             </View>

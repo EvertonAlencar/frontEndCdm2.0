@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {TouchableOpacity } from "react-native";
 
@@ -6,6 +6,7 @@ import Home from '../screens/HomeScreen'
 import ChooseOmeletScreen from '../screens/ChooseOmeletScreen'
 import ChooseTapiocaScreen from '../screens/ChooseTapiocaScreen'
 import CartScreen from "../screens/CartScreen";
+import UpdateQuantity from "../components/testeBadge";
 
 import { Badge } from "react-native-paper";
 import { RFPercentage } from "react-native-responsive-fontsize";
@@ -19,6 +20,7 @@ const Stack = createNativeStackNavigator();
 
 export default function Navigations(){
     const Navigation = useNavigation()
+    const [getCartQuantity, setCartQuantity] = useState(0)
     return(
         <Stack.Navigator>
             <Stack.Screen name="Home" component={Home}/>
@@ -32,7 +34,7 @@ export default function Navigations(){
                 }}
             onPress={()=>{Navigation.navigate('Carrinho')}}
                 >
-                <Badge size={RFPercentage(2)}>3</Badge>
+                <Badge>{getCartQuantity}</Badge>
                 <Ionicons name="cart-outline" size={RFPercentage(4)} color="black" />
                 
             </TouchableOpacity>
@@ -48,7 +50,7 @@ export default function Navigations(){
                 }}
                 onPress={()=>{Navigation.navigate('Carrinho')}}
                 >
-                <Badge size={RFPercentage(2)}>3</Badge>
+                <Badge size={RFPercentage(2)}>{getCartQuantity}</Badge>
                 <Ionicons name="cart-outline" size={RFPercentage(4)} color="black" />
                 
             </TouchableOpacity>
