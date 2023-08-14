@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { Text, View, TouchableOpacity,StyleSheet } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
-import {AntDesign} from '@expo/vector-icons'
+import {AntDesign , Feather} from '@expo/vector-icons'
+import { addOrder, setIdItemInData, DATA, updateOrder } from "../db/orders";
 
 export default function ItemComponent({title,description}){
     const [getQuantity,setQuantity] = useState(0)
+    const [getAddButtomText, setAddButtomText] = useState('Adicionar')
     return(
         <View style={styles.main}>
             <View style={styles.containerTitleValueAndAddButtom}> 
@@ -28,8 +30,22 @@ export default function ItemComponent({title,description}){
                         <AntDesign name='plussquareo' size={RFPercentage(4)} color={'#68BE36'}/>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={styles.buttomAddQuantity} >
-                    <Text style={styles.textButtomAddQuantity}>Adicionar</Text>
+                <TouchableOpacity style={styles.buttomAddQuantity} activeOpacity={0.6} onPress={()=>{
+                    if(getQuantity != 0){
+                        if (DATA.find(item => item.title == title)){
+                            updateOrder(title,getQuantity)
+                        }else{
+                            addOrder({id : setIdItemInData(), title: title, quantity : getQuantity })
+                        }
+                        setAddButtomText(<Feather name="check-circle" size={RFPercentage(4)} color="white" />)
+                        setTimeout(() => {
+                            setAddButtomText('Adicionar')
+                        }, 1000);
+                        setQuantity(0)
+                        
+                    }
+                    }}>
+                    <Text style={styles.textButtomAddQuantity}>{getAddButtomText}</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.containerDescription}>

@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
+import { RFPercentage } from "react-native-responsive-fontsize";
 export const styles = StyleSheet.create({
     container: {
       width: '100%',
@@ -7,6 +8,7 @@ export const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       flexDirection: 'column',
-      marginTop: 50
+      marginTop: RFPercentage(2),
+      marginBottom: RFPercentage(8)
     }
   });

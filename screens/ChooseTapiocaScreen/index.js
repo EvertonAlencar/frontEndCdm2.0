@@ -4,11 +4,16 @@ import ItemComponent from '../../components/ItemComponent'
 import {styles} from './styles'
 import { NavigationContainer } from '@react-navigation/native';
 import { TabNavigation } from '../../Navigation/Tabs';
+import { HeaderWithButtomCart } from '../../components/HeaderWithButtomCart';
+import { RFPercentage } from 'react-native-responsive-fontsize';
 
 export default function ChooseTapiocaScreen() {
   return (
+    
     <View style={{backgroundColor: 'white'}}>
-      
+      <View style={{width: '100%', height: RFPercentage(8)}}>
+        <HeaderWithButtomCart Title={'Tapiocas'}/>
+      </View>
       <ScrollView>
         <View style={styles.container}>
           <ItemComponent title={'Tapioca De Coco'} description={'Tapioca recheada com coco fresco ralado'}/>
