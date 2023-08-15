@@ -8,7 +8,7 @@ import { updateQuantityItensInCart } from "../db/orders"
 
 
 
-export function HeaderWithButtomCart({Title}){
+export function HeaderWithButtomCart({Title, showCart}){
     const [getItensInCart,setItensInCart] = useState(updateQuantityItensInCart())
     const Navigation = useNavigation()
 
@@ -16,25 +16,33 @@ export function HeaderWithButtomCart({Title}){
         setItensInCart(updateQuantityItensInCart())
     }, 500);
 
+    if (showCart == true){
+        return(
+            <View style={styles.mainContainer}>
+                <Text style={styles.title}>{Title}</Text>
+                <TouchableOpacity onPress={()=>{Navigation.navigate('Carrinho')}}>
+                    <View  style={styles.cartContainer}>
+                        <Badge style={{
+                            backgroundColor: '#FBB102', 
+                            color: 'white', 
+                            marginBottom: RFPercentage(-1.5), 
+                            zIndex: 1
+                        }}>{getItensInCart}</Badge>
+                        <Ionicons name="cart-outline" size={RFPercentage(4)} color="white" />
+                    </View>
+                    
+                    
+                </TouchableOpacity>
+            </View>
+        );
+    }else{
+        return(
+            <View style={styles.mainContainer}>
+                <Text style={styles.title}>{Title}</Text>
+            </View>
+        );
+    }
 
-    return(
-        <View style={styles.mainContainer}>
-            <Text style={styles.title}>{Title}</Text>
-            <TouchableOpacity onPress={()=>{Navigation.navigate('Carrinho')}}>
-                <View  style={styles.cartContainer}>
-                    <Badge style={{
-                        backgroundColor: '#FBB102', 
-                        color: 'white', 
-                        marginBottom: RFPercentage(-1.5), 
-                        zIndex: 1
-                    }}>{getItensInCart}</Badge>
-                    <Ionicons name="cart-outline" size={RFPercentage(4)} color="white" />
-                </View>
-                
-                
-            </TouchableOpacity>
-        </View>
-    )
 }
 
 

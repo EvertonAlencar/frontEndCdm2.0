@@ -9,7 +9,7 @@ export default function ChooseOmeletScreen() {
   return (
     <View style={{backgroundColor: 'white'}}>
       <View style={{width: '100%', height: RFPercentage(8)}}>
-        <HeaderWithButtomCart Title={'Omeletes'}/>
+        <HeaderWithButtomCart Title={'Omeletes'} showCart={true}/>
       </View>
       <ScrollView>
         <View style={styles.container}>

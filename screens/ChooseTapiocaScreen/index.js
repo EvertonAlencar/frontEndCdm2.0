@@ -12,7 +12,7 @@ export default function ChooseTapiocaScreen() {
     
     <View style={{backgroundColor: 'white'}}>
       <View style={{width: '100%', height: RFPercentage(8)}}>
-        <HeaderWithButtomCart Title={'Tapiocas'}/>
+        <HeaderWithButtomCart Title={'Tapiocas'} showCart={true}/>
       </View>
       <ScrollView>
         <View style={styles.container}>
