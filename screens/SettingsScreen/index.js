@@ -2,12 +2,15 @@ import React from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { useState } from "react";
 import { styles } from "./styles";
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, Feather } from '@expo/vector-icons';
 import { RFPercentage } from "react-native-responsive-fontsize";
 import { APIConfigs, SaveApiUrl } from "../../db/configsAPI";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from "@react-navigation/native";
+
 
 export default function SettingsScreen(){
+    const Navigation = useNavigation()
     const [getSettingsScreen, setSettingsScreen] = useState('Password')
     const [getPassword,setPassword] = useState('')
     const [getResponsePassword, setResponsePassword] = useState('Avançar')
@@ -74,6 +77,7 @@ export default function SettingsScreen(){
                     APIConfigs.port = getPort
                     SaveApiUrl()
                     console.log(await AsyncStorage.getItem('ApiConfigs'))
+                    Navigation.navigate('Home')
                 }}>
                     <Text style={styles.btnNextText}>
                         Salvar Configurações

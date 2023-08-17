@@ -1,6 +1,5 @@
 import axios from "axios";
 import { DATA } from "../db/orders";
-import { APIConfigs} from "../db/configsAPI";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
