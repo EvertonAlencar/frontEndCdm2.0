@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {TouchableOpacity } from "react-native";
+import {Settings, TouchableOpacity } from "react-native";
 
 import Home from '../screens/HomeScreen'
 import ChooseOmeletScreen from '../screens/ChooseOmeletScreen'
 import ChooseTapiocaScreen from '../screens/ChooseTapiocaScreen'
 import CartScreen from "../screens/CartScreen";
+import SettingsScreen from "../screens/SettingsScreen";
 
 import { Badge } from "react-native-paper";
 import { RFPercentage } from "react-native-responsive-fontsize";
@@ -26,6 +27,7 @@ export default function Navigations(){
             <Stack.Screen name="Tapiocas" component={ChooseTapiocaScreen}/>
             <Stack.Screen name="Omeletes" component={ChooseOmeletScreen}/>
             <Stack.Screen name="Carrinho" component={CartScreen}/>
+            <Stack.Screen name="Settings" component={SettingsScreen}/>
         </Stack.Navigator>
     );
 }

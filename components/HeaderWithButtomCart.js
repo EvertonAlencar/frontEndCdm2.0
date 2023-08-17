@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Touchable, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View,Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 import { RFPercentage } from "react-native-responsive-fontsize";
@@ -8,7 +8,7 @@ import { updateQuantityItensInCart } from "../db/orders"
 
 
 
-export function HeaderWithButtomCart({Title, showCart}){
+export function HeaderWithButtomCart({Title, showCart, showConfigApp}){
     const [getItensInCart,setItensInCart] = useState(updateQuantityItensInCart())
     const Navigation = useNavigation()
 
@@ -32,6 +32,17 @@ export function HeaderWithButtomCart({Title, showCart}){
                     </View>
                     
                     
+                </TouchableOpacity>
+            </View>
+        );
+    }else if(showConfigApp == true){
+        return(
+            <View style={styles.mainContainer}>
+                <Text style={styles.title}>{Title}</Text>
+                <TouchableOpacity onPress={()=>{
+                    Navigation.navigate('Settings')
+                }}>
+                    <Ionicons name="settings" size={RFPercentage(4)} color="white" />
                 </TouchableOpacity>
             </View>
         );

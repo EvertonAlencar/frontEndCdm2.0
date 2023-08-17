@@ -16,7 +16,7 @@ export default function Home(){
     return(
         <View style={styles.mainContainer}>
             <View style={{height: RFPercentage(8)}}>
-                <HeaderWithButtomCart Title={'Inicio'}/>
+                <HeaderWithButtomCart Title={'Inicio'} showConfigApp={true}/>
             </View>
         <View style={styles.ButtonsContainer}>
             

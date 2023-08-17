@@ -1,7 +1,7 @@
 import axios from "axios";
 import { DATA } from "../db/orders";
 
-const baseUrl = {uri : 'http://10.0.0.100:5000/sendOrder'}
+const baseUrl = {uri : 'http://10.0.0.101:5000/sendOrder'}
 
 export async function sendOrder(){ 
     await axios.put(baseUrl.uri, 
@@ -9,7 +9,7 @@ export async function sendOrder(){
             'id' : 0,
             'apartamentNumber' : 121,
             'tableNumber' : 12,
-            'body' : await assembleOrder(),
+            'body' : assembleOrder(),
             'observation': 'descrição'
         }
     )
