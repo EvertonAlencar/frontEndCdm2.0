@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View,Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import { View,Text, TouchableOpacity, StyleSheet, Alert, ImageBackground } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 import { RFPercentage } from "react-native-responsive-fontsize";
@@ -9,6 +9,7 @@ import { updateQuantityItensInCart } from "../db/orders"
 
 
 export function HeaderWithButtomCart({Title, showCart, showConfigApp}){
+    const logo = require('../assets/logo.png')
     const [getItensInCart,setItensInCart] = useState(updateQuantityItensInCart())
     const Navigation = useNavigation()
 

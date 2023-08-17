@@ -12,14 +12,16 @@ const Background = [
 
 
 export default function Home(){
+    const logo = require('../../assets/logo.png')
     const Navigation = useNavigation();
     return(
         <View style={styles.mainContainer}>
             <View style={{height: RFPercentage(8)}}>
                 <HeaderWithButtomCart Title={'Inicio'} showConfigApp={true}/>
             </View>
-        <View style={styles.ButtonsContainer}>
             
+        <View style={styles.ButtonsContainer}>
+        <ImageBackground source={logo} resizeMode="contain" style={{width: RFPercentage(100), height: RFPercentage(10), marginBottom: RFPercentage(5)}}></ImageBackground>
             <TouchableOpacity onPress={()=>{
                 Navigation.navigate('Tapiocas')
             }} style={styles.buttons}>

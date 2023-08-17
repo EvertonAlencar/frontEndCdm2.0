@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {ScrollView,View} from 'react-native';
+import {ScrollView,View, ImageBackground} from 'react-native';
 import ItemComponent from '../../components/ItemComponent'
 import {styles} from './styles'
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,6 +8,7 @@ import { HeaderWithButtomCart } from '../../components/HeaderWithButtomCart';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
 export default function ChooseTapiocaScreen() {
+  const logo = require('../../assets/logo.png')
   return (
     
     <View style={{backgroundColor: 'white'}}>
@@ -16,6 +17,7 @@ export default function ChooseTapiocaScreen() {
       </View>
       <ScrollView>
         <View style={styles.container}>
+        <ImageBackground source={logo} resizeMode="contain" style={{width: RFPercentage(100), height: RFPercentage(10), marginBottom: RFPercentage(5)}}></ImageBackground>
           <ItemComponent title={'Tapioca De Coco'} description={'Tapioca recheada com coco fresco ralado'}/>
           <ItemComponent title={'Tapioca Molhada'} description={'Tapioca molhada com leite de coco'}/>
           <ItemComponent title={'Tapioca Rendada'} description={'Tapioca recheada com queijo coalho'}/>
