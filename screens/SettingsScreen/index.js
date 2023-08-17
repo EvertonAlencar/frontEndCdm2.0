@@ -4,11 +4,14 @@ import { useState } from "react";
 import { styles } from "./styles";
 import { MaterialIcons } from '@expo/vector-icons';
 import { RFPercentage } from "react-native-responsive-fontsize";
+import { APIConfigs } from "../../db/configsAPI";
 
 export default function SettingsScreen(){
     const [getSettingsScreen, setSettingsScreen] = useState('Password')
     const [getPassword,setPassword] = useState('')
     const [getResponsePassword, setResponsePassword] = useState('Avançar')
+    const [getUrl, setUrl] = useState('')
+    const [getPort,setPort] = useState('')
 
     if (getSettingsScreen == 'Password'){
         return (
@@ -53,7 +56,7 @@ export default function SettingsScreen(){
                     <Text style={styles.titleInput}>
                         URL:
                     </Text>
-                    <TextInput style={styles.inputText}>
+                    <TextInput style={styles.inputText} value={getUrl} onChangeText={(text)=>{setUrl(text)}}>
 
                     </TextInput>
                 </View>
@@ -61,11 +64,16 @@ export default function SettingsScreen(){
                     <Text style={styles.titleInput}>
                         Porta:
                     </Text>
-                    <TextInput style={styles.inputText}>
+                    <TextInput style={styles.inputText} value={getPort} onChangeText={(text)=>{setPort(text)}}>
 
                     </TextInput>
                 </View>
-                <TouchableOpacity style={styles.btnNext}>
+                <TouchableOpacity style={styles.btnNext} onPress={()=>{
+                    APIConfigs.Url = 'http://' + getUrl + ':'
+                    APIConfigs.port = getPort
+
+                    console.log(APIConfigs.Url+APIConfigs.port+APIConfigs.endPoint)
+                }}>
                     <Text style={styles.btnNextText}>
                         Salvar Configurações
                     </Text>

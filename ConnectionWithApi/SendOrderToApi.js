@@ -1,9 +1,11 @@
 import axios from "axios";
 import { DATA } from "../db/orders";
+import { APIConfigs } from "../db/configsAPI";
 
-const baseUrl = {uri : 'http://10.0.0.101:5000/sendOrder'}
+const baseUrl = {uri : APIConfigs.Url + APIConfigs.port + APIConfigs.endPoint}
 
 export async function sendOrder(){ 
+    console.log(baseUrl.uri)
     await axios.put(baseUrl.uri, 
         {
             'id' : 0,
