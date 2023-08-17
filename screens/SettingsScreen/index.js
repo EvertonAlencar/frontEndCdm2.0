@@ -4,7 +4,8 @@ import { useState } from "react";
 import { styles } from "./styles";
 import { MaterialIcons } from '@expo/vector-icons';
 import { RFPercentage } from "react-native-responsive-fontsize";
-import { APIConfigs } from "../../db/configsAPI";
+import { APIConfigs, SaveApiUrl } from "../../db/configsAPI";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SettingsScreen(){
     const [getSettingsScreen, setSettingsScreen] = useState('Password')
@@ -68,11 +69,11 @@ export default function SettingsScreen(){
 
                     </TextInput>
                 </View>
-                <TouchableOpacity style={styles.btnNext} onPress={()=>{
-                    APIConfigs.Url = 'http://' + getUrl + ':'
+                <TouchableOpacity style={styles.btnNext} onPress={async()=>{
+                    APIConfigs.Url = getUrl
                     APIConfigs.port = getPort
-
-                    console.log(APIConfigs.Url+APIConfigs.port+APIConfigs.endPoint)
+                    SaveApiUrl()
+                    console.log(await AsyncStorage.getItem('ApiConfigs'))
                 }}>
                     <Text style={styles.btnNextText}>
                         Salvar Configurações

@@ -1,12 +1,15 @@
 import axios from "axios";
 import { DATA } from "../db/orders";
-import { APIConfigs } from "../db/configsAPI";
+import { APIConfigs} from "../db/configsAPI";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const baseUrl = {uri : APIConfigs.Url + APIConfigs.port + APIConfigs.endPoint}
+
+
 
 export async function sendOrder(){ 
-    console.log(baseUrl.uri)
-    await axios.put(baseUrl.uri, 
+  const baseUrl = await AsyncStorage.getItem('ApiConfigs')
+    console.log(baseUrl)
+    await axios.put(baseUrl, 
         {
             'id' : 0,
             'apartamentNumber' : 121,
@@ -25,7 +28,7 @@ export async function sendOrder(){
 
 export function assembleOrder(){
     var orders = ""
-    DATA.forEach((item,index)=>{
+    DATA.forEach((item)=>{
         orders += '\n' + item.quantity + ' ' + ' ' + item.title + '\n'
     })
     return orders
