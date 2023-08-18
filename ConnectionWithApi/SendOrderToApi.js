@@ -11,10 +11,11 @@ export async function sendOrder(){
     await axios.put(baseUrl, 
         {
             'id' : 0,
-            'apartamentNumber' : 121,
-            'tableNumber' : 12,
+            'apartamentNumber' : DATA[0].apartamentNumber,
+            'tableNumber' : DATA[0].tableNumber,
             'body' : assembleOrder(),
-            'observation': 'descrição'
+            'observation': DATA[0].orderObservation,
+            'clothesDescription': DATA[0].clothesDescription
         }
     )
       .then((response) => {

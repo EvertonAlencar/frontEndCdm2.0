@@ -2,7 +2,11 @@ export const DATA = [
     {
       id: 0,
       title: 'Tapioca De Nutella',
-      quantity: 2
+      quantity: 2,
+      apartamentNumber : 0,
+      tableNumber: 0,
+      orderObservation: '',
+      clothesDescription: ''
     }
   ];
 

@@ -9,9 +9,11 @@ import {HeaderWithButtomCart} from '../../components/HeaderWithButtomCart'
 import { DATA, removeOrder} from "../../db/orders";
 import {assembleOrder, sendOrder} from '../../ConnectionWithApi/SendOrderToApi'
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 export default function CartScreen(){
 
+    const Navigation = useNavigation()
 
     const [getData,setData] = useState(DATA)
     const [getRefresh, setRefresh] = useState(false)
@@ -61,7 +63,7 @@ export default function CartScreen(){
                   if(getData.length == 0){
                       console.log('carrinho vazio')
                   }else{
-                    sendOrder()
+                    Navigation.navigate('EnviarPedido')
                   }
   
               }}>
