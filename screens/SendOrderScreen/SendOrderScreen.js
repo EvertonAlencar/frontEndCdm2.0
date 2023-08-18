@@ -4,10 +4,12 @@ import { RFPercentage } from "react-native-responsive-fontsize";
 import { HeaderWithButtomCart } from "../../components/HeaderWithButtomCart";
 import { styles } from "./styles";
 import {sendOrder } from "../../ConnectionWithApi/SendOrderToApi";
-import { DATA } from "../../db/orders";
+import { DATA, resetData } from "../../db/orders";
+import { useNavigation } from "@react-navigation/native";
 
 export default function SendOrderScreen(){
     const logo = require('../../assets/logo.png')
+    const Navigation = useNavigation()
     const [getApartamentNumber, setApartamentNumber] = useState('')
     const [getTableNumber, setTableNumber] = useState('')
     const [getOrderObservation, setOrderObservation] = useState('')
@@ -66,6 +68,7 @@ export default function SendOrderScreen(){
                                 DATA[0].orderObservation = getOrderObservation
                                 DATA[0].clothesDescription = getClothesDescription
                                 sendOrder()
+                                Navigation.navigate('FeedBackOrder')
                             }
                         }}>
                         <Text style={styles.textButtonSendOrder}>

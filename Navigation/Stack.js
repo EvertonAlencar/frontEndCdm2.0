@@ -8,6 +8,7 @@ import ChooseTapiocaScreen from '../screens/ChooseTapiocaScreen'
 import CartScreen from "../screens/CartScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import SendOrderScreen from "../screens/SendOrderScreen/SendOrderScreen";
+import FeedBackOrder from "../screens/feedBackOrder";
 
 import { Badge } from "react-native-paper";
 import { RFPercentage } from "react-native-responsive-fontsize";
@@ -30,6 +31,7 @@ export default function Navigations(){
             <Stack.Screen name="Carrinho" component={CartScreen}/>
             <Stack.Screen name="Settings" component={SettingsScreen}/>
             <Stack.Screen name="EnviarPedido" component={SendOrderScreen}/>
+            <Stack.Screen name="FeedBackOrder" component={FeedBackOrder}/>
         </Stack.Navigator>
     );
 }

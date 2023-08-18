@@ -1,13 +1,13 @@
-export const DATA = [
-    {
+export var DATA = [
+/*     {
       id: 0,
-      title: 'Tapioca De Nutella',
-      quantity: 2,
+      title: '',
+      quantity: 0,
       apartamentNumber : 0,
       tableNumber: 0,
       orderObservation: '',
       clothesDescription: ''
-    }
+    } */
   ];
 
 export function addOrder(order){
@@ -44,4 +44,8 @@ export function setIdItemInData(){
 export function updateQuantityItensInCart(){
     var quantityItensInCart = DATA.length
     return quantityItensInCart
+}
+
+export function resetData(){
+    DATA = [];
 }
